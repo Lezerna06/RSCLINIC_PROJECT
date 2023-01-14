@@ -50,6 +50,18 @@ class profileController extends Controller
     public function changepasswordIndex(){
         return view('user.profile.changePassword');
     }
+    public function updateemail(Request $request){
+        $request->validate([
+            'email' => 'email'
+        ]);
+
+        if($request->email == Auth::user()->email){
+            return back()->with('errors', 'You are using your current email');
+        }
+
+        if(User::where('email', $request->email)->exists()){
+            return back()->with('errors', 'Email already exists');
+        }
 
     public function updatepassword(changePasswordRequest $request){
         
