@@ -17,7 +17,7 @@ class doctorController extends Controller
 
     public function indexManage(){
         $data = [
-            'doctors' => Doctor::orderBy('fullName')->get(),
+            'doctors' => Doctor::orderBy('fullName', 'asc')->get(),
             'count' => 1
         ];
 
