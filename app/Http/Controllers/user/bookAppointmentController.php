@@ -23,6 +23,14 @@ class bookAppointmentController extends Controller
     }
     public function store(userCreateAppointmentRequest $request){
         $doc = Doctor::where('id', $request->doctor)->first();
+        
+        try{
+            DB::commit();
+            $appointment = new Appointment;
+            $appointment->user_id = Auth::user()->id;
+            $appointment->doctor_id = $request->doctor;
+            $appointment->docFees = $doc->docFees;
+            $appointment->save();
 
     public function checkDoctor(Request $request){
         $spec = $request->spec;
