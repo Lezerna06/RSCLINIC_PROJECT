@@ -1,0 +1,37 @@
+.errorMessage{
+    font-size: .75em !important;
+    color: red !important;
+    margin-bottom: 0 !important;
+}
+
+.__alertMessage{
+    position: fixed ;
+    background-color: rgba(47, 228, 115, 0.81);
+    color: black;
+    padding: 6px 25px !important;
+    border-radius: 20px;
+    right: 3px;
+    bottom: 3px;
+    font-size: 18px;
+    z-index: 1000;
+}
+
+.__alertErrorMessage{
+    position: fixed ;
+    background-color: rgba(244, 6, 0, 0.81);
+    color: black;
+    padding: 6px 25px !important;
+    border-radius: 20px;
+    right: 3px;
+    bottom: 3px;
+    font-size: 18px;
+    z-index: 1000;
+}
+
+.__alertMessage>p,.__alertErrorMessage>p{
+    margin: 0;
+}
+
+#sidebar > div nav > ul > li.actived {
+    background: #c8c7cc;
+  }
