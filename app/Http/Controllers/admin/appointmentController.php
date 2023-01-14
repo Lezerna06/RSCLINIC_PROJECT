@@ -12,8 +12,8 @@ class appointmentController extends Controller
     public function index(){
         $data = [
             'count' => 1,
-            'appointments' => Appointment::with('user','doctor')->orderBy('appointmentDate','desc')->get(),
+            'appointments' => Appointment::with('user','doctor')->orderBy('appointmentDate','desc')->get()
         ];
-        
+        return view ('admin.appointment.index',$data);    
     }
 }
