@@ -21,6 +21,8 @@ class bookAppointmentController extends Controller
         ];
         return view('user.appointment.add', $data);
     }
+    public function store(userCreateAppointmentRequest $request){
+        $doc = Doctor::where('id', $request->doctor)->first();
 
     public function checkDoctor(Request $request){
         $spec = $request->spec;
