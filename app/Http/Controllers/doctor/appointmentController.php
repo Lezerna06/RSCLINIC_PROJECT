@@ -22,4 +22,13 @@ class appointmentController extends Controller
         
         return view('doctor.appointment.index', $data);
     }
+    public function appointmentCancel(Request $request){
+        try{
+            DB::beginTransaction();
+            $appointment = Appointment::findOrFail($request->appointment);
+            $appointment->status = 2;
+            $appointment->save();
+            DB::commit();
+            return redirect()->route('doctor.appointment.history')->with('success', 'Selected appointment has been canceled.');
+        }
 }
