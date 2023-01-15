@@ -49,6 +49,9 @@ class patientController extends Controller
             return redirect()->route('doctor.patient.add')->with('error',"Something went wrong, please try again.");
         }
     }
+    public function search(){
+        return view('doctor.search.index');
+    }
 
     public function editIndex(Request $request){
         $data = ['patient' => Patient::findOrFail($request->patient_id)];
