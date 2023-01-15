@@ -62,5 +62,11 @@ class profileController extends Controller
                 'message' => '<h5 style="font-size:18px;" class="text-danger">Please make sure you are not using your current password as new password.</h5>'
             ]);
         }
+        
+        try{
+            DB::beginTransaction();
+            $user = User::findOrFail(Auth::user()->id);
+            $user->password = Hash::make($request->password);
+            $user->save();
     }
 }
