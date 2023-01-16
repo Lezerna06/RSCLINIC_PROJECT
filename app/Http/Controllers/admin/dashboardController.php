@@ -22,6 +22,7 @@ class dashboardController extends Controller
         $data = [            
                 'user' => $countuser,
                 'doctor' => $countdoctor,
+                'appointment' => $countappointment,
                 'patient' => $countpatient,
                 'query' => $newqueries
         ];
