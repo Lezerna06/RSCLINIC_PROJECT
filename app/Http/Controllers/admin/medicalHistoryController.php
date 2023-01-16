@@ -14,7 +14,7 @@ class medicalHistoryController extends Controller
         $patient = Patient::orderBy('created_at', 'desc')->get();
         $data = [
             'patients' => $patient,
-            'count' => 1,
+            'count' => 1
         ];
         return view('admin.medicalhistory.main',$data);
     }
