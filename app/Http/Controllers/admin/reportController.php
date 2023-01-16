@@ -57,4 +57,7 @@ class reportController extends Controller
         
         return view('admin.medicalhistory.betweenresult', $data);
     }
+    
+    public function searchIndex(){
+        return view('admin.search.index');
 }
