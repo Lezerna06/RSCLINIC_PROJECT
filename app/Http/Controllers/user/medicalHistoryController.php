@@ -16,7 +16,7 @@ class medicalHistoryController extends Controller
         $id = Auth::user()->id;
         $patient = Patient::with('user')->whereHas('user', function(Builder $query) use($id){
             $query->where('id', $id);
-        })->orderBy('created_at')->get();
+        })->orderBy('created_at', 'desc')->get();
 
         $data = [
             'patients' => $patient,
