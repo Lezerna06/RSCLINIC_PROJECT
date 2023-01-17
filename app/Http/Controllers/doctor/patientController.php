@@ -106,4 +106,9 @@ class patientController extends Controller
             return redirect()->route('doctor.patient.view',$request->patient_id)->with('error',"Something went wrong, please try again.");
         }
     }
+     public function searchShow(Request $request){
+        $request->validate([
+            'search' => 'required',
+        ]);
+        $status = fal
 }
