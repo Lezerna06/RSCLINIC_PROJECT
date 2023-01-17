@@ -62,6 +62,12 @@ class profileController extends Controller
         if(User::where('email', $request->email)->exists()){
             return back()->with('errors', 'Email already exists');
         }
+        
+        try{
+            DB::beginTransaction();
+            $user = User::findOrFail(Auth::user()->id);
+            $user->email = $request->email;
+            $user->save();
 
     public function updatepassword(changePasswordRequest $request){
         
