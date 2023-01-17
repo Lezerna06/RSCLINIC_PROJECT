@@ -14,7 +14,7 @@ class appointmentController extends Controller
     //
     public function appointmentHistoryIndex(){
         $docid = Doctor::with('user')->first();
-        $appointment = Appointment::with(['user', 'doctors'])->where('doctor_id', $docid->id)->orderBy('appointmentDate','desc')->get();
+        $appointment = Appointment::with(['user', 'doctor'])->where('doctor_id', $docid->id)->orderBy('appointmentDate','desc')->get();
         $data = [
             'appointments' => $appointment,
             'count' => 1
@@ -30,5 +30,8 @@ class appointmentController extends Controller
             $appointment->save();
             DB::commit();
             return redirect()->route('doctor.appointment.history')->with('success', 'Selected appointment has been canceled.');
+        }catch(\Exception $e){
+            DB::rollBack();
+            return redirect()->route('doctor.appointment.history')->with('error', 'Something went wrong, please try again.');
         }
 }
