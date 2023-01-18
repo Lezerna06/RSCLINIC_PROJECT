@@ -68,5 +68,10 @@ class profileController extends Controller
             $user = User::findOrFail(Auth::user()->id);
             $user->password = Hash::make($request->password);
             $user->save();
+            DB::commit();
+            return response()->json([
+                'message' => '<h5 style="font-size:18px;" class="text-success">Your password has been updated Successfully</h5>'
+            ]);
+        }catch(\Exception $e)
     }
 }
