@@ -46,7 +46,7 @@ class doctorController extends Controller
     public function indexEdit(Request $request){
         $data = [
             'doctor' => $doctor = Doctor::with('user')->where('id',$request->doc_id)->first(),
-            'specs' => Specialization::where('specialization', '!=', $doctor->specialization)->orderBy('specialization')->get()
+            'specs' => Specialization::where('specialization', '!=', $doctor->specialization)->orderBy('specialization', 'asc')->get()
         ];
         return view('admin.doctor.edit', $data);
     }
