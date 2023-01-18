@@ -67,7 +67,7 @@ body {
   font-size: 13px;
   padding: 0;
   margin: 0;
-  background: #f7f7f8;
+  background: linear-gradient(to top,rgb(110, 180, 196),rgb(224, 162, 200), rgb(233, 153, 202));
   -webkit-font-smoothing: antialiased !important;
 }
 body.bg_style_1 {
@@ -362,8 +362,8 @@ h5.over-title {
 }
 .navbar .navbar-header {
   z-index: 10;
-  background: #ffffff;
-  border-bottom: 1px solid #c8c7cc;
+  background: #86c9f0;
+  border-bottom: 1px solid #2a0336;
   position: relative;
   height: 65px;
 }
@@ -873,7 +873,7 @@ h5.over-title {
   float: left;
   left: 0;
   bottom: 0;
-  background: #f7f7f8;
+  background: linear-gradient(to top,rgb(250, 120, 239),rgb(103, 174, 255),#86c9f0);
   overflow: visible;
   z-index: 1051;
 }
@@ -999,7 +999,7 @@ h5.over-title {
 }
 
 #sidebar > div nav > ul {
-  background: #ffffff;
+  background: linear-gradient(to top,rgb(139, 218, 255),rgb(231, 128, 128));
   list-style: none;
   margin: 10px 0;
   padding: 0;
@@ -1007,7 +1007,7 @@ h5.over-title {
   border-bottom: 1px solid #c8c7cc;
 }
 #sidebar > div nav > ul > li a {
-  color: #8e8e93;
+ color: #020118;
   border-bottom: none;
 }
 #sidebar > div nav > ul > li a i {
