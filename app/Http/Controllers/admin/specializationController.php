@@ -38,7 +38,7 @@ class specializationController extends Controller
         $data = [
             'spec' => Specialization::findOrFail($request->spec_id)
         ];
-        return view('admin.specialization.edit', $data);;
+        return view('admin.specialization.edit', $data);
     }
 
     public function storeEdit(Request $request){
