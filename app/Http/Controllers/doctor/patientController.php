@@ -110,5 +110,10 @@ class patientController extends Controller
         $request->validate([
             'search' => 'required',
         ]);
-        $status = fal
+        $status = false;
+        $patient = Patient::where('fullName','LIKE','%'.$request->search.'%')
+            ->orWhere('contactno' ,'LIKE','%'.$request->search.'%')->orderBy('fullName', 'Asc')->get();
+        if(count($patient)){
+            $status = true;
+        }
 }
