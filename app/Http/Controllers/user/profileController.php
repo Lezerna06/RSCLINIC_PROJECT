@@ -68,6 +68,9 @@ class profileController extends Controller
             $user = User::findOrFail(Auth::user()->id);
             $user->email = $request->email;
             $user->save();
+            DB::commit();
+            return redirect()->route('user.change.email')->with('success', 'Your email has been updated successfully.');
+        }catch(\Exception $e){
 
     public function updatepassword(changePasswordRequest $request){
         
