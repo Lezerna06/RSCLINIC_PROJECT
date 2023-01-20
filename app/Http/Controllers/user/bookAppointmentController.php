@@ -30,7 +30,15 @@ class bookAppointmentController extends Controller
             $appointment->user_id = Auth::user()->id;
             $appointment->doctor_id = $request->doctor;
             $appointment->docFees = $doc->docFees;
+            $appointment->appointmentDate = $request->appdate;
+            $appointment->appointmentTime = $request->apptime;
             $appointment->save();
+            DB::commit();
+            return redirect()->route('user.book.appointment')->with('success', 'Your appointment has been successfully booked.');
+        }catch(\Exception $e){
+            DB::rollBack();
+            return redirect()->route('user.book.appointment')->with('error', $e.'Something went wrong, please try again!' );
+        }
 
     public function checkDoctor(Request $request){
         $spec = $request->spec;
