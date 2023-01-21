@@ -116,4 +116,10 @@ class patientController extends Controller
         if(count($patient)){
             $status = true;
         }
+        $data = [
+            'patients' => $patient,
+            'count' => 1,
+            'status' => $status,
+            'input' => $request->search
+        ];
 }
