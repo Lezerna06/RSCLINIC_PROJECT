@@ -60,4 +60,22 @@ class reportController extends Controller
     
     public function searchIndex(){
         return view('admin.search.index');
+    }
+public function searchShow(Request $request){
+        $request->validate([
+            'search' => 'required',
+        ]);
+        $status = false;
+        $patient = Patient::where('fullName','LIKE','%'.$request->search.'%')
+            ->orWhere('contactno' ,'LIKE','%'.$request->search.'%')->orderBy('fullName', 'Asc')->get();
+        if(count($patient)){
+            $status = true;
+        }
+        $data = [
+            'patients' => $patient,
+            'count' => 1,
+            'status' => $status,
+            'input' => $request->search
+        ];
+    }
 }
