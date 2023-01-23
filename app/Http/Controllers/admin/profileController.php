@@ -18,7 +18,8 @@ class profileController extends Controller
 
     public function update(changePasswordRequest $request){
 
-        if(Hash::check($request->password, Auth::user()->password)){
+        if(Hash::check($request->password, Auth::user()->password))
+        {
             return response()->json([
                 'message' => '<h5 style="font-size:18px;" class="text-danger">Please make sure you are not using your current password as new password.</h5>'
             ]);
