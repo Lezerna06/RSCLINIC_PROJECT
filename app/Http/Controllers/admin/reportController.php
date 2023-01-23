@@ -77,5 +77,6 @@ public function searchShow(Request $request){
             'status' => $status,
             'input' => $request->search
         ];
+        return view('admin.search.index', $data);
     }
 }
