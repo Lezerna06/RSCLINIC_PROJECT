@@ -18,4 +18,19 @@ class userController extends Controller
         ];
         return view('admin.user.index',$data);
     }
+    public function destroy(Request $request){
+        try
+        {
+            DB::beginTransaction();
+            User::findOrFail($request->user_id)->delete();
+            Userdata::where('user_id',$request->user_id)->delete();
+            DB::commit();
+            return redirect()->route('admin.user.manage')->with('success',"User account has been deleted successfully");
+        }
+        catch(\Exception $e)
+        {
+            DB::rollBack();
+            return redirect()->route('admin.user.manage')->with('error','Something went wrong, please try again.');
+        }
+    }
 }
